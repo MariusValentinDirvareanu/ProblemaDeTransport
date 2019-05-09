@@ -62,11 +62,13 @@ void RezolvareSistem(int tablouCopie[10][10], Da x[10][10]) {
 	bool ok = true;
 	i = 1;
 	while (i < linii) {
-		for (j = 0; j < coloane; ++j) {
+		for(j=0;j<coloane;++j) {
 			if (x[i - 1][j].val != 0) {
 				if (ok == false) {
-					tablouCopie[i][0] = tablouCopie[i][j + 1] - tablouCopie[0][j + 1];
-					ok = true;
+					if (tablouCopie[0][j + 1] != 0) {
+						tablouCopie[i][0] = tablouCopie[i][j + 1] - tablouCopie[0][j + 1];
+						ok = true;
+					}
 				}
 				else {
 					tablouCopie[0][j + 1] = tablouCopie[i][j + 1] - tablouCopie[i][0];
